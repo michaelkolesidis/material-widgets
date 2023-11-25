@@ -72,7 +72,7 @@ const App = () => {
           alignItems: "center",
           justifyContent: "center",
           backgroundColor: "#F9F9F9",
-          padding: "5px 0 100px 0",
+          padding: `5px 0 ${matches ? "25px" : "100px"} 0`,
           boxShadow: "10px 10px 10px lightgrey",
           width: "fit-content",
         }}
@@ -82,6 +82,8 @@ const App = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: `${matches ? "center" : "flex-start"}`,
+            justifyContent: "center",
+            padding: "0 10px",
             flexWrap: "wrap",
           }}
         >
@@ -102,6 +104,9 @@ const App = () => {
             sx={{
               display: "flex",
               flexDirection: `${matches ? "column" : "row"}`,
+              justifyContent: `${!matches ? "space-between" : "start"}`,
+              gap: "25px",
+              padding: `${matches ? "0 20px" : "0"}`,
             }}
           >
             {widgets}

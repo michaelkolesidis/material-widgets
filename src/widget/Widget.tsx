@@ -1,14 +1,14 @@
 import { Box, Typography } from "@mui/material";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import GreenparkLogo from "./components/GreesparkLogo";
-import { WidgetProperties } from "../utils/interfaces";
-import useStore from "../stores/useStore";
-import { Color, HexColor } from "../utils/enums";
-import { getColor } from "../utils/utils";
 import StyledCheckbox from "./components/StyledCheckbox";
 import StyledRadio from "./components/StyledRadio";
 import StyledSwitch from "./components/StyledSwitch";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import HtmlTooltip from "./components/HtmlTooltip";
+import { WidgetProperties } from "../utils/interfaces";
+import { Color, HexColor } from "../utils/enums";
+import useStore from "../stores/useStore";
+import { getHexColor } from "../utils/utils";
 
 const Widget: React.FC<WidgetProperties> = ({
   id,
@@ -30,26 +30,26 @@ const Widget: React.FC<WidgetProperties> = ({
     justifyContent: "flex-start",
     padding: "10.297px 13.895px 10.297px 11.91px",
     gap: "11.91px",
-    backgroundColor: getColor(selectedColor),
+    backgroundColor: getHexColor(selectedColor),
     color:
       selectedColor === "beige"
-        ? getColor(Color.Green)
+        ? getHexColor(Color.Green)
         : selectedColor === "white"
-        ? getColor(Color.Black)
-        : getColor(Color.White),
+        ? getHexColor(Color.Black)
+        : getHexColor(Color.White),
     borderRadius: "5.995px",
   };
 
   const typographyStyle = {
-    color: getColor(Color.Green),
+    color: getHexColor(Color.Green),
   };
 
   const logoColor = (selectedColor: string): HexColor => {
     return selectedColor === "beige"
-      ? getColor(Color.Green)
+      ? getHexColor(Color.Green)
       : selectedColor === "white"
-      ? getColor(Color.Black)
-      : getColor(Color.White);
+      ? getHexColor(Color.Black)
+      : getHexColor(Color.White);
   };
 
   /**
@@ -67,12 +67,8 @@ const Widget: React.FC<WidgetProperties> = ({
     toggleActive(id);
   };
 
-  const handleClick = () => {
-    console.log("d");
-  };
-
   return (
-    <Box sx={{ width: "260px", marginRight: "30px", marginBottom: "10px" }}>
+    <Box sx={{ width: "260px", marginBottom: "10px" }}>
       <Box
         sx={{
           ...widgetHeaderStyle,
@@ -128,10 +124,7 @@ const Widget: React.FC<WidgetProperties> = ({
                 </>
               }
             >
-              <InfoOutlinedIcon
-                sx={{ height: "15px", marginBottom: "2px" }}
-                onClick={handleClick}
-              />
+              <InfoOutlinedIcon sx={{ height: "15px", marginBottom: "2px" }} />
             </HtmlTooltip>
           </Typography>
           <StyledCheckbox checked={linked} onChange={handleLinkChange} />

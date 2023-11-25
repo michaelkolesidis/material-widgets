@@ -8,7 +8,7 @@ const colorMappings: Record<Color, HexColor> = {
   [Color.Beige]: HexColor.Beige,
 };
 
-export const getColor = (color: Color): HexColor => {
+export const getHexColor = (color: Color): HexColor => {
   const hexColor = colorMappings[color];
   if (hexColor === undefined) {
     throw new Error("Invalid color");
