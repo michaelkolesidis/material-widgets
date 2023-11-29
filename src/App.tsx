@@ -61,7 +61,7 @@ const App = () => {
     }
   );
 
-  const matches = useMediaQuery("(max-width:600px)");
+  const matches = useMediaQuery("(max-width:950px)");
 
   return (
     <ThemeProvider theme={theme}>
@@ -90,7 +90,7 @@ const App = () => {
           <Typography
             sx={{ color: HexColor.Black, fontSize: "30px", fontWeight: "700" }}
           >
-            Per product widgets
+            Ecological Material Widgets
           </Typography>
           <Divider
             sx={{

@@ -1,7 +1,8 @@
 {
-  "name": "widgets",
+  "name": "material-widgets",
   "author": "Michael Kolesidis",
-  "license": "",
+  "description": "A collection of ecological material widgets",
+  "license": "AGPL-3.0-or-later",
   "private": true,
   "version": "0.0.0",
   "type": "module",

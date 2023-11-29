@@ -4,11 +4,11 @@ import { HexColor } from "../../utils/enums";
 
 const StyledRadio = styled(
   (props: RadioProps & { backgroundColor: HexColor }) => <Radio {...props} />
-)(({ backgroundColor }) => ({
+)(({ backgroundColor, disabled }) => ({
   height: "20px",
   width: "20px",
   marginLeft: "4px",
-  backgroundColor: backgroundColor,
+  backgroundColor: disabled ? "#DDDDDD" : backgroundColor,
   color: "#0000",
   borderRadius: "0%",
   "&.Mui-checked": {

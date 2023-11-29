@@ -1,4 +1,9 @@
-# Widgets
+
+![Leaf logo](./public/assets/icons/android-chrome-192x192.png)
+
+# Material Widgets
+
+A collection of ecological material widgets.
 
 ## Description
 
@@ -33,7 +38,7 @@ yarn dev
 
 ### Demo
 
-There is an online demo available at [https://material-widgets.vercel.app/](https://material-widgets.vercel.app/). It is deployed using [Vercel](https://vercel.com/).
+There is an online demo available at [https://materialwidgets.vercel.app/](https://ecologicalwidgets.vercel.app/). It is deployed using [Vercel](https://vercel.com/).
 
 ## Technologies
 
@@ -62,4 +67,7 @@ A non-exhaustive list of software that was used during the development of the pr
 
 ## License
 
-Copyright (c) 2023 Michael Kolesidis
+<a href="https://www.gnu.org/licenses/agpl-3.0.html"><img src="https://upload.wikimedia.org/wikipedia/commons/0/06/AGPLv3_Logo.svg" height="100px" /></a>
+
+Copyright (c) 2023 Michael Kolesidis<br>
+Licensed under the [GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.html).

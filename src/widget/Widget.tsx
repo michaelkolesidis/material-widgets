@@ -1,14 +1,14 @@
 import { Box, Typography } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import GreenparkLogo from "./components/GreesparkLogo";
+import LeafLogo from "./components/LeafLogo";
 import StyledCheckbox from "./components/StyledCheckbox";
 import StyledRadio from "./components/StyledRadio";
 import StyledSwitch from "./components/StyledSwitch";
 import HtmlTooltip from "./components/HtmlTooltip";
-import { WidgetProperties } from "../utils/interfaces";
 import { Color, HexColor } from "../utils/enums";
+import { WidgetProperties } from "../utils/interfaces";
+import { colorMappings, getHexColor } from "../utils/utils";
 import useStore from "../stores/useStore";
-import { getHexColor } from "../utils/utils";
 
 const Widget: React.FC<WidgetProperties> = ({
   id,
@@ -67,6 +67,21 @@ const Widget: React.FC<WidgetProperties> = ({
     toggleActive(id);
   };
 
+  /**
+   * Components
+   */
+  const styledRadios = Object.values(Color).map((color) => (
+    <StyledRadio
+      key={color}
+      disabled={!active}
+      checked={selectedColor === color}
+      onChange={handleColorChange}
+      value={color}
+      name="color-buttons"
+      backgroundColor={colorMappings[color]}
+    />
+  ));
+
   return (
     <Box sx={{ width: "260px", marginBottom: "10px" }}>
       <Box
@@ -75,7 +90,7 @@ const Widget: React.FC<WidgetProperties> = ({
         }}
       >
         <Box>
-          <GreenparkLogo color={logoColor(selectedColor)} />
+          <LeafLogo color={logoColor(selectedColor)} />
         </Box>
         <Box
           sx={{
@@ -127,7 +142,11 @@ const Widget: React.FC<WidgetProperties> = ({
               <InfoOutlinedIcon sx={{ height: "15px", marginBottom: "2px" }} />
             </HtmlTooltip>
           </Typography>
-          <StyledCheckbox checked={linked} onChange={handleLinkChange} />
+          <StyledCheckbox
+            disabled={!active}
+            checked={linked}
+            onChange={handleLinkChange}
+          />
         </Box>
 
         <Box
@@ -138,43 +157,7 @@ const Widget: React.FC<WidgetProperties> = ({
           }}
         >
           <Typography sx={{ ...typographyStyle }}>Badge color</Typography>
-          <Box>
-            <StyledRadio
-              checked={selectedColor === "blue"}
-              onChange={handleColorChange}
-              value="blue"
-              name="color-buttons"
-              backgroundColor={HexColor.Blue}
-            />
-            <StyledRadio
-              checked={selectedColor === "green"}
-              onChange={handleColorChange}
-              value="green"
-              name="color-buttons"
-              backgroundColor={HexColor.Green}
-            />
-            <StyledRadio
-              checked={selectedColor === "beige"}
-              onChange={handleColorChange}
-              value="beige"
-              name="color-buttons"
-              backgroundColor={HexColor.Beige}
-            />
-            <StyledRadio
-              checked={selectedColor === "white"}
-              onChange={handleColorChange}
-              value="white"
-              name="color-buttons"
-              backgroundColor={HexColor.White}
-            />
-            <StyledRadio
-              checked={selectedColor === "black"}
-              onChange={handleColorChange}
-              value="black"
-              name="color-buttons"
-              backgroundColor={HexColor.Black}
-            />
-          </Box>
+          <Box>{styledRadios}</Box>
         </Box>
 
         <Box
