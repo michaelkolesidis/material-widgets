@@ -5,6 +5,8 @@
 
 A collection of ecological material widgets.
 
+![Screenshot](./screenshots/screenshot.png)
+
 ## Description
 
 _TypeScript_ has been used as the main programming language, providing a robust foundation for enforcing type safety throughout the codebase. The user interface is created using _React_ along with _MUI_ (Material UI), a versatile component library.
