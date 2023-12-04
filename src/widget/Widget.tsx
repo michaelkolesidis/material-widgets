@@ -7,7 +7,7 @@ import StyledSwitch from "./components/StyledSwitch";
 import HtmlTooltip from "./components/HtmlTooltip";
 import { Color, HexColor } from "../utils/enums";
 import { WidgetProperties } from "../utils/interfaces";
-import { colorMappings, getHexColor } from "../utils/utils";
+import { colorMappings } from "../utils/utils";
 import useStore from "../stores/useStore";
 
 const Widget: React.FC<WidgetProperties> = ({
@@ -30,26 +30,26 @@ const Widget: React.FC<WidgetProperties> = ({
     justifyContent: "flex-start",
     padding: "10.297px 13.895px 10.297px 11.91px",
     gap: "11.91px",
-    backgroundColor: getHexColor(selectedColor),
+    backgroundColor: colorMappings[selectedColor],
     color:
       selectedColor === "beige"
-        ? getHexColor(Color.Green)
+        ? colorMappings[Color.Green]
         : selectedColor === "white"
-        ? getHexColor(Color.Black)
-        : getHexColor(Color.White),
+        ? colorMappings[Color.Black]
+        : colorMappings[Color.White],
     borderRadius: "5.995px",
   };
 
   const typographyStyle = {
-    color: getHexColor(Color.Green),
+    color: colorMappings[Color.Green],
   };
 
   const logoColor = (selectedColor: string): HexColor => {
     return selectedColor === "beige"
-      ? getHexColor(Color.Green)
+      ? colorMappings[Color.Green]
       : selectedColor === "white"
-      ? getHexColor(Color.Black)
-      : getHexColor(Color.White);
+      ? colorMappings[Color.Black]
+      : colorMappings[Color.White];
   };
 
   /**
